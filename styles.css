@@ -1,0 +1,50 @@
+body {
+  color: #414141;               /* Dark gray */
+  background-color: #AA2020;    /* Light gray */
+}
+
+strong {
+  background-color: #B2D6FF;
+  display: block;   /* Light blue */
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+.synopsis {
+  color: #FF90E3;
+  font-style: italic;
+}
+
+.projects {
+  color: #50AB72;
+  font-style:oblique;
+}
+
+a:link {
+  color: yellow;
+  text-decoration: none;
+}
+
+a:visited {
+  color: green;
+}
+a:hover {
+  color: aqua;
+  text-decoration: underline;
+}
+a:active {
+  color: orange;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #dddddd;
+}
