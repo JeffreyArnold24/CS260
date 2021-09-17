@@ -50,3 +50,38 @@ top:0;
   padding: 0;
   background-color: #dddddd;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.menu-container {
+  color: #fff;
+  background-color: #5995DA;  /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  border: 1px solid #fff;  /* For debugging */
+  width: 900px;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    background-color: #F09A9D; /* Red */
+  }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body {
+    background-color: #F5CF8E; /* Yellow */
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  body {
+    background-color: #123456; /* Blue */
+  }
+}
