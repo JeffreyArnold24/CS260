@@ -1,0 +1,83 @@
+/* Bootstrap */
+/* BS Navbar */
+.bg-dark {
+  background-color: #00AAFF;
+}
+
+/* BS Container */
+.col-sm {
+  border: 1px black solid;
+}
+
+.col-md {
+  text-align: center;
+  padding: 5px;
+}
+
+/* Headers */
+h1 {
+  margin: 10px;
+}
+
+/* Output */
+/* Used for Time */
+h4 {
+  font-size: x-large;
+}
+
+.icon {
+  text-align: center;
+  align-self: center;
+}
+
+/* Input */
+.central {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  margin: 10px;
+}
+
+/* Return to Landing Page Button */
+.return {
+  position: fixed;
+  list-style-type: none;
+  text-align: center;
+  bottom: 50px;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 180px;
+  background-color: #34e5eb;
+  color: black;
+  padding: 2px;
+}
+
+.return a {
+  color: black;
+  text-decoration: none;
+  border: 2px solid #000;
+}
+
+.return a:hover {
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+}
+
+/*Footer*/
+footer {
+  text-align: center;
+  background-color: #555;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding: 20px;
+  font-size: small;
+  font-family: monospace;
+}
