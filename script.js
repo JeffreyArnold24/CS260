@@ -1,8 +1,10 @@
+Vue.component('star-rating', VueStarRating.default);
+
 let app = new Vue({
   el: '#app',
   data: {
     number: '',
-    max:'',
+    max: '',
     current: {
       title: '',
       img: '',
@@ -12,37 +14,38 @@ let app = new Vue({
 addedName: '',
 addedComment: '',
 comments: {},
+
   },
   created() {
     this.xkcd();
   },
   methods: {
     async xkcd() {
-  try {
-    this.loading = true;
-    let url = 'https://xkcd.now.sh/?comic=';
-    if (this.number === '') {
-      url += 'latest';
-    } else {
-      url += this.number;
-    }
-    const response = await axios.get(url);
-    this.current = response.data;
-    this.loading = false;
-    this.number = response.data.num;
-  } catch (error) {
-    this.number = this.max;
-  }
-},
-previousComic() {
-  this.number = this.current.num - 1;
-  if (this.number < 1)
-    this.number = 1;
+      try {
+        this.loading = true;
+        let url = 'https://xkcd.now.sh/?comic=';
+        if (this.number === '') {
+          url += 'latest';
+        } else {
+          url += this.number;
+        }
+        const response = await axios.get(url);
+        this.current = response.data;
+        this.loading = false;
+        this.number = response.data.num;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    previousComic() {
+      this.number = this.current.num - 1;
+         if (this.number < 1)
+           this.number = 1;
 },
 nextComic() {
   this.number = this.current.num + 1;
-  if (this.number > this.max)
-    this.number = this.max
+     if (this.number > this.max)
+       this.number = this.max
 },
 getRandom(min, max) {
   min = Math.ceil(min);
@@ -62,8 +65,17 @@ addComment() {
   this.addedName = '';
   this.addedComment = '';
 },
-},
-computed: {
+setRating(rating){
+  if (!(this.number in this.ratings))
+  Vue.set(this.ratings, this.number, {
+    sum: 0,
+    total: 0
+  });
+  this.ratings[this.number].sum += rating;
+this.ratings[this.number].total += 1;
+}
+  },
+  computed: {
   month() {
     var month = new Array;
     if (this.current.month === undefined)
@@ -81,15 +93,17 @@ computed: {
     month[10] = "November";
     month[11] = "December";
     return month[this.current.month - 1];
-  }
+  },
 },
- watch: {
-   number(value, oldvalue) {
-     if (oldvalue === '') {
-       this.max = value;
-     } else {
-       this.xkcd();
-     }
-   },
- },
+watch: {
+  number(value, oldvalue) {
+    if (oldvalue === '') {
+      this.max = value;
+    } else {
+      this.xkcd();
+    }
+  },
+},
+comments: {},
+ratings: {},
 });
